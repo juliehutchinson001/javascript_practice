@@ -63,3 +63,19 @@ try {
 } catch (error) {
     console.error(error.message);
 }
+
+//-----------------------------------------------------
+
+// Given the following code in `greeting.js`:
+
+function sayGreeting() {
+    console.log("Hello World");
+}
+
+module.exports.say = sayGreeting;
+
+/* How would you access the functionality from another
+ file? */
+
+const greeting = require("./greeting");
+greeting.say();
