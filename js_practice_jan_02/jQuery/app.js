@@ -22,3 +22,19 @@ const content = "This is my <strong>first</strong> post!";
 
 $("#blogTitlePreview").text(title);
 $("#blogContentPreview").html(content);
+
+// ---------------------------------------------------
+/* Inside the provided click handler in app.js:
+Use jQuery’s val() method to get the value of the 
+text input with the ID of name-input. Save it to a 
+variable named newName. Select the heading text with 
+the class of .profile-name. Use jQuery’s text() method 
+to set the contents of .profile-name to the value of 
+the input field */
+
+$('button').click(function() {
+    const newName = $("#name-input").val();
+
+    $(".profile-name").text(newName);
+
+});
