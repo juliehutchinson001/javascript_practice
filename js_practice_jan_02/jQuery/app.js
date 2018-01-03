@@ -7,8 +7,18 @@ use the fadeIn() method to fade the header in. */
 
 //document.querySelector('.profile-header').style.display = 'none';
 
-$('.profile-header').hide()
+$('.profile-header').hide().delay(2000).fadeIn();
 
-$(".profile-header")
-    .delay(2000)
-    .fadeIn();
+// ---------------------------------------------------
+
+$('#flashMessage')
+    .hide()
+    .slideDown(1000)
+    .delay(3000)
+    .slideUp();
+
+const title = "My First Blog Post";
+const content = "This is my <strong>first</strong> post!";
+
+$("#blogTitlePreview").text(title);
+$("#blogContentPreview").html(content);
