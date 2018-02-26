@@ -26,3 +26,49 @@ const myTeam = {
   pointGuard: <li>Femi Billon</li>
 };
 ```
+
+## What is React?
+>- React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
+
+```
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+        </ul>
+      </div>
+    );
+  }
+}
+```
+
+Here, ShoppingList is a __React component class__, or
+__React component type__. A component takes in parameters, called props, and returns a hierarchy of views to display via the render method.
+
+The render method returns a description of what you want to render, and then React takes that description and renders it to the screen. In particular, render returns a __React element__, which is a lightweight description of what to render.
+
+The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+
+```
+return React.createElement('div', {className: 'shopping-list'},
+  React.createElement('h1', /* ... h1 children ... */),
+  React.createElement('ul', /* ... ul children ... */)
+);
+```
+### createElement
+
+```
+React.createElement(
+  type,
+  [props],
+  [...children]
+)
+```
+>- Create and return a new React element of the given type. The type argument can be either a tag name string (such as 'div' or 'span'), a React component type (a class or a function), or a React fragment type.
+
+>- Code written with JSX will be converted to use `React.createElement()`. 
