@@ -49,7 +49,7 @@ const panda = <img src="images/panda.jpg" alt="panda" width="500px" height="500p
 ## Nested JSX
 >- You can nest JSX elements inside of other JSX elements, just like in HTML.
 
->- Here's an example of a JSX <h1> element, nested inside of a JSX <a> element:
+>- Here's an example of a JSX `<h1>` element, nested inside of a JSX `<a>` element:
 
 ```
 <a href="https://www.example.com"><h1>Click me!</h1></a>
@@ -89,8 +89,33 @@ const panda = <img src="images/panda.jpg" alt="panda" width="500px" height="500p
  );
 ```
 
+## JSX Outer Elements
+>- There's a rule that we haven't mentioned: a JSX expression must have exactly one outermost element. In other words, this code will work:
+
+```
+const paragraphs = (
+  <div id="i-am-the-outermost-element">
+    <p>I am a paragraph.</p>
+    <p>I, too, am a paragraph.</p>
+  </div>
+);
+```
+
+>- But this code will not work:
+
+```
+const paragraphs = (
+  <p>I am a paragraph.</p>
+  <p>I, too, am a paragraph.</p>
+);
+```
+
+>- The first opening tag and the final closing tag of a JSX expression must belong to the same JSX element! (Must wrap code in div tags)
 
 
+
+
+---
 
 ## What is React?
 >- React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
