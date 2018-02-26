@@ -31,6 +31,7 @@ const myTeam = {
 >- JSX elements can have attributes, just like HTML elements can.
 
 >- A JSX attribute is written using HTML-like syntax: a name, followed by an equals sign, followed by a value. The value should be wrapped in quotes, like this:
+
 ```
 my-attribute-name="my-attribute-value"
 Here are some JSX elements with attributes:
@@ -124,19 +125,19 @@ const paragraphs = (
 
 >- Move to the right a little more, and you come to this expression:
 
-`<h1>Hello world</h1>`
+<center>`<h1>Hello world</h1>`</center>
 
 >- This is the first argument being passed to `ReactDOM.render()`. `ReactDOM.render()'s` first argument should be a JSX expression, and it will be rendered to the screen.
 
 ## ReactDOM.render() II
 
->- You just learned that ReactDOM.render() makes its first argument appear onscreen. But where on the screen should that first argument appear?
+>- You just learned that `ReactDOM.render()` makes its first argument appear onscreen. But where on the screen should that first argument appear?
 
 >- The first argument is appended to whatever element is selected by the second argument.
 
 >- In the code editor, select index.html. See if you can find an element that would be selected by document.getElementById('app').
 
->- That element acted as a container for ReactDOM.render()'s first argument! At the end of the previous exercise, this appeared on the screen:
+>- That element acted as a container for `ReactDOM.render()'s` first argument! At the end of the previous exercise, this appeared on the screen:
 
 ```
 <main id="app">
@@ -150,7 +151,7 @@ const paragraphs = (
 
 >- The first argument could also be a variable, so long as that variable evaluates to a JSX expression.
 
->- In this example, we save a JSX expression as a variable named toDoList. We then pass toDoList as the first argument to ReactDOM.render():
+>- In this example, we save a JSX expression as a variable named toDoList. We then pass toDoList as the first argument to `ReactDOM.render()`:
 
 ```
 const toDoList = (
@@ -169,6 +170,35 @@ ReactDOM.render(
 
 
 ---
+
+>- Functional components don't have state, they only have props --they are sent as a parameter in the function and gotten in the class in the constructor (immutable) and they have a return statement --.
+>- Class based components have a state --mutable, --, they have a render method.
+>- props:
+>>- object
+>>- change triggers an update
+>>- a component should not change it's props
+>>- a component should provide props to its children
+>>- props come from outside
+>>-props usually configure or provide data
+
+>- State
+>>- Object
+>>- change triggers an update
+>>- a component should set its state
+>>- a component should set default values for state
+>>- state should not be shared
+>>- state is internal or private
+>>- state determines the 'state' of a component
+>>-
+>>-
+>>-
+
+
+
+
+
+
+
 
 ## What is React?
 >- React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
