@@ -27,6 +27,25 @@ const myTeam = {
 };
 ```
 
+## Attributes In JSX
+>- JSX elements can have attributes, just like HTML elements can.
+
+>- A JSX attribute is written using HTML-like syntax: a name, followed by an equals sign, followed by a value. The value should be wrapped in quotes, like this:
+```
+my-attribute-name="my-attribute-value"
+Here are some JSX elements with attributes:
+
+<a href="http://www.example.com">Welcome to the Web</a>;
+
+const title = <h1 id="title">Introduction to React.js: Part I</h1>;
+```
+
+>- A single JSX element can have many attributes, just like in HTML:
+
+```
+const panda = <img src="images/panda.jpg" alt="panda" width="500px" height="500px" />;
+```
+
 ## What is React?
 >- React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
 
@@ -71,4 +90,4 @@ React.createElement(
 ```
 >- Create and return a new React element of the given type. The type argument can be either a tag name string (such as 'div' or 'span'), a React component type (a class or a function), or a React fragment type.
 
->- Code written with JSX will be converted to use `React.createElement()`. 
+>- Code written with JSX will be converted to use `React.createElement()`.
