@@ -112,6 +112,21 @@ const paragraphs = (
 
 >- The first opening tag and the final closing tag of a JSX expression must belong to the same JSX element! (Must wrap code in div tags)
 
+## Render a JSX expressions
+
+>- To render a JSX expression means to make it appear onscreen.
+
+## ReactDOM.render() I
+
+>- ReactDOM is the name of a JavaScript library. This library contains several React-specific methods, all of which deal with the DOM in some way or another.
+
+>- `ReactDOM.render()` is the most common way to render JSX. It takes a JSX expression, creates a corresponding tree of DOM nodes, and adds that tree to the DOM. That is the way to make a JSX expression appear onscreen.
+
+>- Move to the right a little more, and you come to this expression:
+
+`<h1>Hello world</h1>`
+
+>- This is the first argument being passed to `ReactDOM.render()`. `ReactDOM.render()'s` first argument should be a JSX expression, and it will be rendered to the screen.
 
 
 
