@@ -175,15 +175,15 @@ ReactDOM.render(
 >- Class based components have a state --mutable, --, they have a render method.
 >- props:
 >>- object
->>- change triggers an update
+>>- a change triggers an update
 >>- a component should not change it's props
 >>- a component should provide props to its children
 >>- props come from outside
->>-props usually configure or provide data
+>>- props usually configure or provide data
 
 >- State
 >>- Object
->>- change triggers an update
+>>- a change triggers an update
 >>- a component should set its state
 >>- a component should set default values for state
 >>- state should not be shared
