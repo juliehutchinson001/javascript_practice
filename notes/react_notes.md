@@ -123,21 +123,54 @@ const paragraphs = (
 
 >- `ReactDOM.render()` is the most common way to render JSX. It takes a JSX expression, creates a corresponding tree of DOM nodes, and adds that tree to the DOM. That is the way to make a JSX expression appear onscreen.
 
->- Move to the right a little more, and you come to this expression:
+>- Move and you come to this expression:
 
 <center>`<h1>Hello world</h1>`</center>
 
 >- This is the first argument being passed to `ReactDOM.render()`. `ReactDOM.render()'s` first argument should be a JSX expression, and it will be rendered to the screen.
 
-## ReactDOM.render() II
+>- app.js
 
->- You just learned that `ReactDOM.render()` makes its first argument appear onscreen. But where on the screen should that first argument appear?
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app'));)
+```
+
+>- index.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/styles.css">
+	<title>Learn ReactJS</title>
+</head>
+
+<body>
+  <span id="container"></span>
+	<script src="https://s3.amazonaws.com/codecademy-content/courses/React/react-course-bundle.min.js"></script>
+  <script src="/app.compiled.js"></script>
+</body>
+
+</html>
+```
+
+
+## ReactDOM.render() II
 
 >- The first argument is appended to whatever element is selected by the second argument.
 
->- In the code editor, select index.html. See if you can find an element that would be selected by document.getElementById('app').
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
 
->- That element acted as a container for `ReactDOM.render()'s` first argument! At the end of the previous exercise, this appeared on the screen:
+ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app'));
+```
+
+>- That element acted as a container for `ReactDOM.render()'s` first argument:
 
 ```
 <main id="app">
@@ -145,7 +178,7 @@ const paragraphs = (
 </main>
 ```
 
-##Passing a Variable to ReactDOM.render()
+## Passing a Variable to `ReactDOM.render()`
 
 >- `ReactDOM.render()'s` first argument should evaluate to a JSX expression, it doesn't have to literally be a JSX expression.
 
@@ -167,9 +200,26 @@ ReactDOM.render(
 );
 ```
 
+## The Virtual DOM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
+## React Facebook Documentation
 
 >- Functional components don't have state, they only have props --they are sent as a parameter in the function and gotten in the class in the constructor (immutable) and they have a return statement --.
 >- Class based components have a state --mutable, --, they have a render method.
