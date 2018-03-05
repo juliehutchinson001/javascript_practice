@@ -259,7 +259,20 @@ ReactDOM.render(hello, document.getElementById('app'));
 
   `<br>`
 
+## Curly Braces in JSX
 
+>- Any code in between the tags of a JSX element will be read as JSX, not as regular JavaScript! JSX doesn't add numbers - it reads them as text, just like HTML.
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+	<h1>{2 + 3}</h1>, document.getElementById('app')
+);
+```
+
+>- You can treat code located in between JSX tags like ordinary JavaScript by wrapping your code in curly braces.
 
 
 
