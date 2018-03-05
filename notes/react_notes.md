@@ -235,7 +235,29 @@ ReactDOM.render(hello, document.getElementById('app'));
 
 >- When JSX is rendered, JSX className attributes are automatically rendered as class attributes.
 
+## Self-Closing Tags
 
+>- Most HTML elements use two tags: an opening tag (`<div>`), and a closing tag (`</div>`). However, some HTML elements such as `<img>` and `<input>` use only one tag. The tag that belongs to a single-tag element isn't an opening tag nor a closing tag; it's a self-closing tag.
+
+>- When you write a self-closing tag in HTML, it is optional to include a forward-slash immediately before the final angle-bracket:
+
+>>- Fine in HTML with a slash:
+
+  `<br />`
+
+>>- Also fine, without the slash:
+
+  `<br>`
+
+>- In JSX, you have to include the slash. If you write a self-closing tag in JSX and forget the slash, you will raise an error:
+
+>>- Fine in JSX:
+
+  `<br />`
+
+>>- __NOT FINE AT ALL in JSX:__
+
+  `<br>`
 
 
 
