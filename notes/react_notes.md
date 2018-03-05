@@ -220,6 +220,20 @@ ReactDOM.render(hello, document.getElementById('app'));
 
 >- Only updating the necessary DOM elements is a large part of what makes React so successful.
 
+<center> ADVANCED JSX </center>
+
+## class vs className
+>- In HTML, it's common to use class as an attribute name:
+
+`<h1 class="big">Hey</h1>`
+
+>- In JSX, you can't use the word class! You have to use className instead:
+
+`<h1 className="big">Hey</h1>`
+
+>- This is because JSX gets translated into JavaScript, and class is a reserved word in JavaScript.
+
+>- When JSX is rendered, JSX className attributes are automatically rendered as class attributes.
 
 
 
