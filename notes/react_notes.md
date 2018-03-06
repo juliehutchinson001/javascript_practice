@@ -413,6 +413,9 @@ const kitty = (
 ReactDOM.render(kitty, document.getElementById('app'));
 ```
 
+## JSX Conditionals: If Statements That Don't Work
+>- you can not inject an if statement into a JSX expression.
+
 
 
 
