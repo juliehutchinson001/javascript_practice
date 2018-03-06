@@ -32,10 +32,11 @@ const myTeam = {
 
 >- A JSX attribute is written using HTML-like syntax: a name, followed by an equals sign, followed by a value. The value should be wrapped in quotes, like this:
 
-```
-my-attribute-name="my-attribute-value"
-Here are some JSX elements with attributes:
+`my-attribute-name="my-attribute-value"`
 
+>- Here are some JSX elements with attributes:
+
+```
 <a href="http://www.example.com">Welcome to the Web</a>;
 
 const title = <h1 id="title">Introduction to React.js: Part I</h1>;
@@ -368,8 +369,49 @@ function myFunc() {
 
 >- In __JSX, event listener names are written in camelCase__, such as onClick or onMouseOver.
 
+__Example:__ Add an onClick attribute to the `<img />` element. Set onClick's value equal to the makeDoggy function. Since attributes are a part of JSX expressions, you will need to inject JavaScript in order to use makeDoggy.
 
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+function makeDoggy(e) {
+  // Call this extremely useful function on an <img>.
+  // The <img> will become a picture of a doggy.
+  e.target.setAttribute('src', 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg');
+  e.target.setAttribute('alt', 'doggy');
+}
+
+const kitty = (
+	<img
+		src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg"
+		alt="kitty" />
+);
+
+ReactDOM.render(kitty, document.getElementById('app'));
+```
+
+__Solution:__
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+function makeDoggy(e) {
+  // Call this extremely useful function on an <img>.
+  // The <img> will become a picture of a doggy.
+  e.target.setAttribute('src', 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg');
+  e.target.setAttribute('alt', 'doggy');
+}
+
+const kitty = (
+	<img
+		src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg"
+		alt="kitty" onClick={makeDoggy} />
+);
+
+ReactDOM.render(kitty, document.getElementById('app'));
+```
 
 
 
