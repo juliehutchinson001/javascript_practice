@@ -416,6 +416,38 @@ ReactDOM.render(kitty, document.getElementById('app'));
 ## JSX Conditionals: If Statements That Don't Work
 >- you can not inject an if statement into a JSX expression.
 
+## JSX Conditionals: If Statements That Do Work
+>- write an if statement, and not inject it into JSX.
+
+>- the following code works, because the words if and else are not injected in between JSX tags. The if statement is on the outside, and no JavaScript injection is necessary.
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+let message;
+
+if (user.age >= drinkingAge) {
+  message = (
+    <h1>
+      Hey, check out this alcoholic beverage!
+    </h1>
+  );
+} else {
+  message = (
+    <h1>
+      Hey, check out these earrings I got at Claire's!
+    </h1>
+  );
+}
+
+ReactDOM.render(
+  message,
+  document.getElementById('app')
+);
+```
+
+
 
 
 
