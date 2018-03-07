@@ -494,6 +494,23 @@ const headline = (
 
 In the above example, if age is greater than or equal to drinkingAge, then headline will equal `<h1>Buy Drink</h1>`. Otherwise, headline will equal `<h1>Do Teen Stuff</h1>`.
 
+## JSX Conditionals: &&
+>- && works best in conditionals that will sometimes do an action, but other times do nothing at all. Here's an example:
+
+```
+const tasty = (
+  <ul>
+    <li>Applesauce</li>
+    { !baby && <li>Pizza</li> }
+    { age > 15 && <li>Brussels Sprouts</li> }
+    { age > 20 && <li>Oysters</li> }
+    { age > 25 && <li>Grappa</li> }
+  </ul>
+);
+```
+
+>- Every time that you see && in this example, either some code will run, or else no code will run.
+
 
 
 
