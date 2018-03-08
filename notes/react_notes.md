@@ -574,8 +574,11 @@ const liArray = [
 
 ```
 const h1 = <h1>Hello world</h1>;
+```
+
 can be rewritten without JSX, like this:
 
+```
 const h1 = React.createElement(
   "h1",
   null,
@@ -586,6 +589,31 @@ const h1 = React.createElement(
 >- When a JSX element is compiled, the compiler transforms the JSX element into the method that you see above: `React.createElement()`. Every JSX element is secretly a call to `React.createElement()`.
 
 >- The react [documentation](http://facebook.github.io/react/docs/top-level-api.html#react.createelement) explains more!
+
+## Hello World, Part II... THE COMPONENT
+>- React applications are made out of components.
+
+### What's a component?
+
+>- A component is a small, reusable chunk of code that is responsible for one job. That job is often to render a new React component:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class MyComponentClass extends React.Component {
+  render() {
+    return <h1>Hello world</h1>;
+  }
+};
+
+ReactDOM.render(
+  <MyComponentClass />,
+  document.getElementById('app')
+);
+```
+
+>- A lot of that code is probably unfamiliar. However you can recognize some JSX in there, as well as ReactDOM.render().
 
 
 
