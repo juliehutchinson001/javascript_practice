@@ -677,12 +677,16 @@ class ShoppingList extends React.Component {
 }
 ```
 
-Here, ShoppingList is a __React component class__, or
+>- Components tell React what you want to render – then React will efficiently update and render just the right components when your data changes.
+
+>- Here, ShoppingList is a __React component class__, or
 __React component type__. A component takes in parameters, called props, and returns a hierarchy of views to display via the render method.
 
-The render method returns a description of what you want to render, and then React takes that description and renders it to the screen. In particular, render returns a __React element__, which is a lightweight description of what to render.
+>- The render method returns a description of what you want to render, and then React takes that description and renders it to the screen.
 
-The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+>- In particular, render returns a __React element__, which is a lightweight description of what to render.
+
+>- The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
 
 ```
 return React.createElement('div', {className: 'shopping-list'},
@@ -702,3 +706,9 @@ React.createElement(
 >- Create and return a new React element of the given type. The type argument can be either a tag name string (such as 'div' or 'span'), a React component type (a class or a function), or a React fragment type.
 
 >- Code written with JSX will be converted to use `React.createElement()`.
+
+>- You can put any JavaScript expression within braces inside JSX. Each React element is a real JavaScript object that you can store in a variable or pass around your program.
+
+>- The ShoppingList component only renders built-in DOM components, but you can compose custom React components just as easily, by writing <ShoppingList />.
+
+>- Each component is encapsulated so it can operate independently, which allows you to build complex UIs out of simple components.
