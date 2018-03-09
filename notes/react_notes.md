@@ -677,6 +677,8 @@ class ShoppingList extends React.Component {
 }
 ```
 
+>- the style of programming where we write out step by step what to do is called _imperative_, the style of programming where we describe the final result is _declarative_.
+
 >- Components tell React what you want to render – then React will efficiently update and render just the right components when your data changes.
 
 >- Here, ShoppingList is a __React component class__, or
