@@ -32,3 +32,40 @@ function getClothing(isCold) {
 ### What about var?\
 
 >- var is used in situations where you want to globally define variables, but this is often considered bad practice and should be avoided.
+
+## Template Literals
+
+>- Template literals are essentially string literals that include embedded expressions.
+>- Denoted with backticks ( `` ) instead of single quotes ( '' ) or double quotes ( "" ), template literals can contain placeholders which are represented using ${expression}. This makes it much easier to build strings. Below you'll see the old practice:
+
+```javascript
+const student = {
+  name: 'Richard Kalehoff',
+  guardian: 'Mr. Kalehoff'
+};
+
+const teacher = {
+  name: 'Mrs. Wilson',
+  room: 'N231'
+}
+
+let message = student.name + ', \n\n Please see ' + teacher.name + ' in ' + teacher.room + ' to pick up your report card.';
+
+>>> Richard Kalehoff,
+
+    Please see Mrs. Wilson in N231 to pick up your report card.
+```
+
+>- Here's the previous example using template literals.
+
+```javascript
+let message = `${student.name}, 
+                Please see ${teacher.name} in ${teacher.room} to pick up your report card.`;
+
+>>> Richard Kalehoff,
+
+    Please see Mrs. Wilson in N231 to pick up your report card.
+```
+
+>- By using template literals, you can drop the quotes along with the string concatenation operator. Also, you can reference the object's properties inside expressions.
+
