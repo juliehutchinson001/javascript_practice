@@ -25,3 +25,10 @@ function getClothing(isCold) {
 
 >- Variables declared with let can be reassigned, but can’t be redeclared in the same scope.
 >- Variables declared with const must be assigned an initial value, but can’t be redeclared in the same scope, and can’t be reassigned.
+>- use let when you plan to reassign new values to a variable, and
+>- use const when you don’t plan on reassigning new values to a variable.
+>- Since const is the strictest way to declare a variable, the identifiers won't change throughout the lifetime of your program. If you need to update a variable or change it, then go with let.
+
+### What about var?\
+
+>- var is used in situations where you want to globally define variables, but this is often considered bad practice and should be avoided.
