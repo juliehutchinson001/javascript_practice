@@ -714,3 +714,20 @@ React.createElement(
 >- The ShoppingList component only renders built-in DOM components, but you can compose custom React components just as easily, by writing <ShoppingList />.
 
 >- Each component is encapsulated so it can operate independently, which allows you to build complex UIs out of simple components.
+
+---
+
+```javascript
+
+function Application() {
+  return(
+    <div>
+      <h1>hello from Julie!</h1>
+      <p>I was rendered from the application component</p>
+    </div>
+  );
+}
+
+ReactDOM.render(<Application />, document.getElementById('container'));
+
+```
