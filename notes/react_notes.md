@@ -717,6 +717,8 @@ React.createElement(
 
 ---
 
+### React Component
+
 ```javascript
 
 function Application() {
