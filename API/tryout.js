@@ -1,9 +1,23 @@
-const ul = document.getElementById('authors'); 
-const url = 'https://randomuser.me/api/?results=10'; 
+const url = 'https://randomuser.me/api/'; 
+let userName = document.querySelector('h1');
+let button = document.querySelector('button');
 
-fetch(url).then(function(data) {
-  let myAPIdata = data.json();
-    console.log(myAPIdata);
-    }).catch(function(error) {
+const changeUser = (data) =>  {
+  userName.innerHTML = data.results[0].login.username;
+};
+
+const getRandomUser = () => {
+  fetch(url).then((resp) => resp.json()).then((data) => {
+  
+  // userName.innerHTML = data.results[0].login.username;
+    changeUser(data);
+    
+  }).catch(function(error) {
     console.log("error found, fix it and try again");
   });
+}
+
+
+button.addEventListener('click', getRandomUser);
+
+
