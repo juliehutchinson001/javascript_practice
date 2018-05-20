@@ -36,7 +36,7 @@ const myTeam = {
 
 >- Here are some JSX elements with attributes:
 
-```
+```html
 <a href="http://www.example.com">Welcome to the Web</a>;
 
 const title = <h1 id="title">Introduction to React.js: Part I</h1>;
@@ -59,7 +59,7 @@ const panda = <img src="images/panda.jpg" alt="panda" width="500px" height="500p
 
 >- To make this more readable, you can use HTML-style line breaks and indentation:
 
-```
+```html
 <a href="https://www.example.com">
   <h1>
     Click me!
