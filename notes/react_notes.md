@@ -450,7 +450,7 @@ ReactDOM.render(img, document.getElementById('app'));
 
 >- the following code works, because the words if and else are not injected in between JSX tags. The if statement is on the outside, and no JavaScript injection is necessary.
 
-```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 
