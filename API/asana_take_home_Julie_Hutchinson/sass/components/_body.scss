@@ -1,0 +1,51 @@
+$bodyMargin: .75rem 20vw;
+
+.project-body {
+  border: $componentBorderMid;
+  margin: $bodyMargin;
+  min-height: 80vh;
+  background-color: #fff;
+  border-radius: 2px;
+  padding-bottom: 2.5rem;
+
+}
+
+.task__actions {
+  border-bottom: $componentBorderMid;
+  min-width: 100%;
+}
+
+.task-list {
+  width: 100%;
+
+}
+
+.task-list__row {
+  border-bottom: $componentBorderLight;
+  width: 90%;
+  padding: 0 5%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f6f8f9;
+    .task-list__txt {
+      background-color: #f6f8f9;
+
+    }
+
+  }
+
+}
+
+.task-list__txt {
+  height: 30px;
+  font-size: 20px;
+  border: none;
+  width: 80%;
+
+  &:hover {
+    background-color: #f6f8f9;
+
+  }
+
+}
