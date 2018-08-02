@@ -1,6 +1,6 @@
 # What is JSX?
 
->- JSX is a syntax extension for JavaScript. It was written to be used with React. JSX code looks a lot like HTML.
+>- JSX is a JavaScript XML. It is a javascript syntax extension for JavaScript. It was written to be used with React. JSX code looks a lot like HTML.
 
 ```javascript
 const h1 = <h1>Hello world</h1>;
