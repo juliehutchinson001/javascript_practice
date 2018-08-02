@@ -23,7 +23,7 @@ This steps are developed in the **Document Object Model** or **DOM**, with JavaS
 >* The href property sets or returns the entire URL of the current page.
 >* The resulting URL in the developer's console matches the URL in the address bar.
 
-```document.body.innerHTML = 'some text';```
+__`document.body.innerHTML = 'some text';`__
 
 >* Predefined document object in JavaScript, which can be used to access all elements on the DOM.
 >* The document acts as the owner (or root) of all objects in a webpage.
@@ -31,18 +31,18 @@ This steps are developed in the **Document Object Model** or **DOM**, with JavaS
 
 The __document object__ can be used to select and control elements of the currently loaded web page.
 
-<p>`document.getElementById()` __Method;__</p>
+__`document.getElementById()`__
 
 >* This method returns the element that has the ID attribute with the specified value.
 >* It is used almost every time you want to manipulate, or get info from, an element on your document.
 >* Returns null if no elements with the specified ID exists.
 
-<p>```document.getElementById('h1').style.backgroundColor;```</p>
+__`document.getElementById('h1').style.backgroundColor;`__
 
 >* Return the backgroundColor property `object.style.backgroundColor;`
 >* Set the backgroundColor property ```object.style.backgroundColor = "color";```
 
-<p>`document.getElementById('h2').style.color;`</p>
+__`document.getElementById('h2').style.color;`__
 
 >* The color property, when ```object.style.color = "color";``` sets the color of the text.
 >* when ```object.style.color;``` returns the color represented in a string.
