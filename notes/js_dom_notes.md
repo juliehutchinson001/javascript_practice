@@ -302,7 +302,7 @@ function attachListItemButtons(li) {
 
 addItemButton.addEventListener('click', () => {
     let ul = document.getElementsByTagName('ul')[0];
-    let li = document.createElement('li);
+    let li = document.createElement('li');
 
     li.textContent = addItemInput.value;
     attachListItemButtons(li);
@@ -326,7 +326,7 @@ for (let i = 0; i < lis.length; i += 1) {
 
 ## Getting the First and Last Child
 
-__<p>`ParentNode.firstElementChild`</p> __
+`ParentNode.firstElementChild`
 
 >- It gives you the first DOM child element of a selected element.
 
@@ -338,8 +338,9 @@ const firstListItem = listUl.firstElementChild;
 
 ```
 
-__<p>``ParentNode.lastElementChild</p> __
-It gives you the last DOM element child of a selected element.
+`ParentNode.lastElementChild`
+
+>- It gives you the last DOM element child of a selected element.
 
 ```javascript
 
@@ -514,7 +515,7 @@ function move() {
 
 ```
 
-The `move()` function increments the left property of the box element by one each time it is called. The following code defines a timer that calls the `move()` function every 10 milliseconds:
+>- The `move()` function increments the left property of the box element by one each time it is called. The following code defines a timer that calls the `move()` function every 10 milliseconds:
 
 ```let t = setInterval(move, 10);```
 
