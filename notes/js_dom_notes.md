@@ -77,9 +77,10 @@ const myHeading = document.getElementById('myHeading');
 myHeading.addEventListener('click', () => {
     myHeading.style.color = 'red';
 });
+
 ```
 
-<p>`addEventListener();`</p>
+`addEventListener();`
 
 >* This method attaches an event handler to the document.
 >* This method tells myHeading to start listening for browser events, such as scrolling, keypresses, a click, mouse moves, input, scrolling and so on.
@@ -87,8 +88,9 @@ myHeading.addEventListener('click', () => {
 >* Tip: Use the __``document.removeEventListener();``__ method to remove an event handler that has been attached with the addEventListener() method.
 >* Tip: Use the __``element.addEventListener();``__ method to attach an event handler to a specified element.
 
-## Select a Page Element By Its ID ##
-<p>Changing the headline color in response to clicking a button. Selection is a way to identify an element for a browser, so the browser can find it and make it available for us to do something with it using JavaScript. Remember ___Document_ is a global variable representing a webpage__. So now, a button is added to the html document, as well as an input element (so we can input text to affect the document):</p>
+## Select a Page Element By Its ID
+
+>- Changing the headline color in response to clicking a button. Selection is a way to identify an element for a browser, so the browser can find it and make it available for us to do something with it using JavaScript. Remember ___Document_ is a global variable representing a webpage__. So now, a button is added to the html document, as well as an input element (so we can input text to affect the document):
 
 ```html
 <!DOCTYPE html>
@@ -107,7 +109,7 @@ myHeading.addEventListener('click', () => {
 </html>
 ```
 
-Let's change the heading element to red when you click the button. So now the constant, myTextInput, holds a reference to the text input element
+>- Let's change the heading element to red when you click the button. So now the constant, myTextInput, holds a reference to the text input element
 
 ```javascript
 
@@ -120,7 +122,7 @@ aButton.addEventListener('click', () => {
 });
 ```
 
-<p>There is a variable named button in app.js. Set its value to contain a reference to the button element in index.html with the ID of sayPhrase.</p>
+>- There is a variable named button in app.js. Set its value to contain a reference to the button element in index.html with the ID of sayPhrase.
 
 ```javascript
 
@@ -134,17 +136,17 @@ button.addEventListener('click', () => {
 
 ## Select All Elements of a Particular Type
 
-<p>Select an element that doesn't have an ID, or select multiple elements on a page, using``getElementsByTagName``. While a get element by ID returns a single element that can be accessed directly, get elements by tag name returns a collection of elements.</p>
+>- Select an element that doesn't have an ID, or select multiple elements on a page, using``getElementsByTagName``. While a get element by ID returns a single element that can be accessed directly, get elements by tag name returns a collection of elements.
 
 ```javascript
 
 const el = document.getElementById('a'); => <ul id="a">
 ```
 
-<p>A collection is like an array, you can access an element directly using its index or loop over the whole collection to access all of them.</p>
+>- A collection is like an array, you can access an element directly using its index or loop over the whole collection to access all of them.
 
-<br>
-__<p>``Document.getElementsByTagName();</p> __
+
+`Document.getElementsByTagName();`
 
 >* Returns an HTMLCollection of elements with the given tag name.
 >* The complete document is searched, including the root node.
@@ -152,6 +154,7 @@ __<p>``Document.getElementsByTagName();</p> __
 
 <br>
 __HTMLCollection__
+
 >* interface that represents a generic collection (array-like object similar to arguments) of elements (in document order).
 >* It offers methods and properties for selecting from the list.``HTMLCollection.length;``returns the number of items in the collection.
 >* Method.``HTMLCollection.item();``returns the specific node at the given zero-based index into the list. Returns null if the index is out of range.
