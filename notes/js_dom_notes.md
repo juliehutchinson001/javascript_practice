@@ -153,7 +153,8 @@ const el = document.getElementById('a'); => <ul id="a">
 >* The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync with the DOM tree without having to call``document.getElementsByTagName()``again.
 
 <br>
-__HTMLCollection__
+
+`HTMLCollection`
 
 >* interface that represents a generic collection (array-like object similar to arguments) of elements (in document order).
 >* It offers methods and properties for selecting from the list.``HTMLCollection.length;``returns the number of items in the collection.
@@ -173,7 +174,8 @@ __HTMLCollection__
         <p>Things that are purple:</p>
         <ul>
             <li>grapes</li>
-            <li>amethyst</li>   <li>lavender</li>
+            <li>amethyst</li>
+            <li>lavender</li>
             <li>plums</li>
         </ul>
         <input type="text" id="myTextInput">
@@ -183,7 +185,7 @@ __HTMLCollection__
 </html>
 ```
 
-<p>So then, to change the color of the elements of a collection, we use indexing:</p>
+>- So then, to change the color of the elements of a collection, we use indexing:
 
 ```javascript 
 const els = document.getElementsByTagName('li');
@@ -194,7 +196,7 @@ els[2].style.color = 'purple';
 
 ```
 
-or to change the entire collection, you do a for loop:
+>- or to change the entire collection, you do a for loop:
 
 ```javascript
 for(let i = 0, i < els.length, i++){
@@ -204,7 +206,7 @@ for(let i = 0, i < els.length, i++){
 
 ## Selecting Elements with the Same Class Name
 
-<p>When working with HTML, you'll use classes to give elements a particular style with CSS. Select elements with the same class, using `document.getElementsByClassName`.</p>
+>- When working with HTML, you'll use classes to give elements a particular style with CSS. Select elements with the same class, using `document.getElementsByClassName`.
 
 
 ## Using CSS Queries to Select Page Elements ##
@@ -219,7 +221,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
 MDN page for querySelectorAll
 
 
-## Working with DOM ##
+## Working with DOM
+
 >* ``element.childNodes`` returns an array of an element's child nodes.
 >* ``element.firstChild`` returns the first child node of an element.
 >* ``element.lastChild`` returns the last child node of an element.
@@ -280,25 +283,25 @@ the list item element:
 ```javascript
 function attachListItemButtons(li) {
 
-let up = document.createElement('button');
-up.className = 'up';up.textContent = 'Up';li.appendChild(up);
+    let up = document.createElement('button');
+    up.className = 'up';up.textContent = 'Up';li.appendChild(up);
 
-let down = document.createElement;('buttodown.className ) = 'down'
-down.textContent = 'Down'
-li.appendChild(down)
+    let down = document.createElement;(buttodown.className ) = 'down'
+    down.textContent = 'Down'
+    li.appendChild(down)
 
-let remove = document.createEle('button');</p>remove.className = 'remove';remove.textContent = 'Remove';
-li.appendChild(remove);
+    let remove = document.createEle('button');remove.className = 'remove';remove.textContent = 'Remove';
+    li.appendChild(remove);
 
 }
 ```
 
-Now, below in the event handler, the function can be called for the new items:
+>- Now, below in the event handler, the function can be called for the new items:
 
 ```javascript
 
 addItemButton.addEventListener('click', () => {
-    let ul = document.getElementsByTagName('p')[0];
+    let ul = document.getElementsByTagName('ul')[0];
     let li = document.createElement('li);
 
     li.textContent = addItemInput.value;
@@ -323,8 +326,9 @@ for (let i = 0; i < lis.length; i += 1) {
 
 ## Getting the First and Last Child
 
-__<p>``ParentNode.firstElementChild</p> __
-It gives you the first DOM child element of a selected element.
+__<p>`ParentNode.firstElementChild`</p> __
+
+>- It gives you the first DOM child element of a selected element.
 
 ```javascript
 
@@ -343,15 +347,15 @@ const lastListItem = listUl.lastElementChild;lastListItem.style.backgroundColor 
 
 ```
 
-__``ParentNode.firstChild``__
-><p>It gives you the first element child of a selected element (no guaranty of returning a DOM element since it could return white space or preceding element of selected one.)</p>
+__`ParentNode.firstChild`__
+
+>- It gives you the first element child of a selected element (no guaranty of returning a DOM element since it could return white space or preceding element of selected one.)
 
 __`ParentNode.lastChild`__
-><p>It returns the subsequent element of the selected element.</p>
 
-<p>A delegated click event listener has been attached to the selected ul element, which is stored in the variable list. The handler is targeting each button in the list.</p>
+>- It returns the subsequent element of the selected element. A delegated click event listener has been attached to the selected ul element, which is stored in the variable list. The handler is targeting each button in the list.
 
-<p>When any one of the buttons is clicked, a class of highlight should be added to the paragraph element immediately preceding that button inside the parent list item element.</p>
+>- When any one of the buttons is clicked, a class of highlight should be added to the paragraph element immediately preceding that button inside the parent list item element.
 
 ```javascript
 
@@ -433,13 +437,13 @@ let node = document.createTextNode("Some text");
     let p = document.createElement("p");
     let node = document.createTextNode("Somtext");
     p.appendChild(node); //adding the text of the paragraph
-    let div = document.getElementById("demo"):
-div.appendChild(p); //adding the paragraph to the div</p>
+    let div = document.getElementById("demo");
+    div.appendChild(p); //adding the paragraph to the div
 
 </script>
 ```
 
->- To remove an HTML element, you must select the parent of the element and use the ``removeChild(node)`` method.
+>- To remove an HTML element, you must select the parent of the element and use the `removeChild(node)` method.
 
 ```html
 
@@ -459,9 +463,7 @@ div.appendChild(p); //adding the paragraph to the div</p>
 </script>
 ```
 
-This removes the paragraph with __id="p1"__ from the page.
-
-An alternative way of achieving the same result would be the use of the __parentNode__ property to get the parent of the element we want to remove:
+>- This removes the paragraph with `id="p1"` from the page. An alternative way of achieving the same result would be the use of the `parentNode` property to get the parent of the element we want to remove:
 
 ```javascript
 
@@ -469,7 +471,7 @@ let child = document.getElementById("p1");
 child.parentNode.removeChild(child);
 ```
 
->- To replace an HTML element, the ``element.replaceChild(newNode, oldNode)`` method is used.
+>- To replace an HTML element, the `element.replaceChild(newNode, oldNode)` method is used.
 
 ```html
 <div id="demo">
@@ -650,8 +652,7 @@ $("button.alert").click(function() {
 });
 ```
 
->- with the above, a separate handler gets created for every single element that matches the selector. That means many matching elements would create many identical handlers and thus increase memory footprint dynamically added items won't have the handler - ie, in the above html the newly added "Alert!" buttons won't work unless you rebind the handler.
->- When we use __.on__
+>- with the above, a separate handler gets created for every single element that matches the selector. That means many matching elements would create many identical handlers and thus increase memory footprint dynamically added items won't have the handler - ie, in the above html the newly added "Alert!" buttons won't work unless you rebind the handler. When we use `.on`
 
 ```javascript
 $("div#container").on('click', 'button.alert', function() {
@@ -661,7 +662,7 @@ $("div#container").on('click', 'button.alert', function() {
 
 >- with the above, a single handler for all elements that match your selector, including the ones created dynamically.
 
->- If you add a handler with ``.on("click", handler)`` you normally remove it with ``.off("click", handler)`` which will remove that very handler. Obviously this works only if you have a reference to the function, so what if you don't? You use namespaces:
+>- If you add a handler with `.on("click", handler)` you normally remove it with `.off("click", handler)` which will remove that very handler. Obviously this works only if you have a reference to the function, so what if you don't? You use namespaces:
 
 ```javascript
 
