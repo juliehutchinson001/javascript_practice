@@ -14,7 +14,13 @@ if (user.age >= drinkingAge) {
 }
 
 
+const underage = `Hey, check out these earrings I got at Claire's!`;
+const adult = `Hey, check out this alcoholic beverage!`;
+const message2 = user.age >= drinkingAge ? <h1>{adult}</h1> : <h1>{underage}</h1>;
+
+
+
 ReactDOM.render(
-    message,
+    message2,
     document.getElementById('app')
 );
