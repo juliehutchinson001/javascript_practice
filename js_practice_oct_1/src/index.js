@@ -1,3 +1,5 @@
+/*
+
 let toggleMessage = false;
 
 const app = {
@@ -32,3 +34,20 @@ const render = () => {
 };
 
 render();
+
+*/
+
+/* ***** The New Way ***** */
+
+class Visibility extends React.Component {
+
+    
+
+    render() {
+        return(
+            <div>
+                <h1></h1>
+            </div>
+        );
+    }
+}
