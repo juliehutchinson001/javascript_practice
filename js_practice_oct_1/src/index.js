@@ -41,7 +41,14 @@ render();
 
 class Visibility extends React.Component {
 
-    
+    constructor(props) {
+        super(props);
+
+        this.state = { 
+            message: '', 
+            button: "Show Details"
+        }
+    }
 
     render() {
         return(
