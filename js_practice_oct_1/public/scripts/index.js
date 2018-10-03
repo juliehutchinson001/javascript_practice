@@ -3,15 +3,12 @@
 var toggleMessage = false;
 
 var app = {
-    name: "Visibility App",
-    details: ""
+    name: "Visibility App"
 };
 
 var toggle = function toggle() {
 
     toggleMessage = !toggleMessage;
-
-    app.details = app.details === '' ? "This details can be seen now" : '';
     render();
 };
 
@@ -32,10 +29,10 @@ var render = function render() {
             { onClick: toggle },
             toggleMessage ? "Hide Details" : "Show Details"
         ),
-        React.createElement(
+        toggleMessage && React.createElement(
             "p",
             null,
-            app.details
+            "This details can be seen now"
         )
     );
 
