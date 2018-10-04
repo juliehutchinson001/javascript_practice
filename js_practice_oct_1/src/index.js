@@ -89,3 +89,4 @@ class VisibilityContainer extends React.Component {
 
 
 
+ReactDOM.render(<VisibilityContainer />, document.getElementById('app'));
