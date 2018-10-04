@@ -91,6 +91,14 @@ class VisibilityContainer extends React.Component {
 };
 
 
+const Visibility = ( { detailsText, buttonText, clickHandler } ) => (
 
+    <div>
+        <h1>Visibility App</h1>
+        <p>{ detailsText }</p>
+        <button onClick={ clickHandler }>{ buttonText }</button>
+    </div>
+
+);
 
 ReactDOM.render(<VisibilityContainer />, document.getElementById('app'));
