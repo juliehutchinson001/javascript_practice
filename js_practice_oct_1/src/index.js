@@ -39,35 +39,53 @@ render();
 
 /* ***** The New Way ***** */
 
-class Visibility extends React.Component {
+class VisibilityContainer extends React.Component {
 
     constructor(props) {
+
         super(props);
 
         this.state = { 
-            message: '', 
-            button: "Show Details"
+            detailsText: '', 
+            buttonText: "Show Details"
         };
+
+    }
+
+    getDetailsText() {
+
+        const text = !this.state.detailsText ? "these details ..." : "";
+        return text;
+
+    }
+
+    getButtonText() {
+
+        const buttonText = this.state.buttonText === "Show Details" 
+                            ? "Hide Details" 
+                            : "Show Details";
+        return buttonText;
+
     }
 
     handleClick() {
 
         this.setState(
             {
-                message: "This details can be seen now",
-                button: "Hide Details"
+                detailsText: this.getDetailsText(),
+                buttonText: this.getButtonText()
             }
         )
 
     }
 
     render() {
-        return(
-            <div>
-                <h1>Visibility App</h1>
-                <p>{this.state.message}</p>
-                <button onClick={() => this.handleClick()}>{this.state.button}</button>
-            </div>
+        return (
+            
         );
     }
-}
+};
+
+
+
+
