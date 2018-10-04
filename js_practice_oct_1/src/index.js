@@ -81,7 +81,11 @@ class VisibilityContainer extends React.Component {
 
     render() {
         return (
-            
+            <Visibility 
+                detailsText={ this.state.detailsText }
+                buttonText={ this.state.buttonText }
+                clickHandler={ () => this.handleClick() }
+            />
         );
     }
 };
