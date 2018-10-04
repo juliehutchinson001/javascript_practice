@@ -47,13 +47,26 @@ class Visibility extends React.Component {
         this.state = { 
             message: '', 
             button: "Show Details"
-        }
+        };
+    }
+
+    handleClick() {
+
+        this.setState(
+            {
+                message: "This details can be seen now",
+                button: "Hide Details"
+            }
+        )
+
     }
 
     render() {
         return(
             <div>
-                <h1></h1>
+                <h1>Visibility App</h1>
+                <p>{this.state.message}</p>
+                <button onClick={() => this.handleClick()}>{this.state.button}</button>
             </div>
         );
     }
