@@ -6,6 +6,10 @@ class FormContainer extends Component {
         super( props );
 
         this.state = {
+            userName: '',
+            userEmail: '',
+            userPassword: '',
+            formWarnings: [],
             showWarnings: false 
         };
     }
