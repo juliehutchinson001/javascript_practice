@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class WarningsContainer extends Component {
 
-    
+
 
     render() {
 
@@ -26,4 +26,6 @@ const Warnings = () => {
         </ul>
     );
 
-}
+};
+
+export default WarningsContainer;
