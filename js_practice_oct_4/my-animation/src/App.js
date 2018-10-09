@@ -13,7 +13,15 @@ class FormContainer extends Component {
 
     }
 
-    
+    handleFormSubmit(event) {
+
+        event.preventDefault();
+
+        const submitFieldNameLen = this.state.userName.length > 1;
+
+        if(submitFieldNameLen) { this.setState({ formWarnings: ['Pick a larger name']}) }
+
+    }
     
     constructor( props ) {
         super( props );
