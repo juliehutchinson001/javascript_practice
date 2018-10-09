@@ -19,14 +19,16 @@ class FormContainer extends Component {
     }
 
     render() {
+        
         const { userName, userEmail, userPassword, formWarnings } = this.state;
+        
         return (
             <Form 
                 user={ userName }
                 email={ userEmail }
                 password={ userPassword }
                 errors={ formWarnings }
-                onChange={ (event) => this.handleFormChange(event) }
+                onChange={ (event) => this.handleInputChange(event) }
                 onSubmit={ (event) => this.handleFormSubmit(event) }
             />
         );
