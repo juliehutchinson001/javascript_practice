@@ -4,6 +4,15 @@ import WarningsContainer from './components/Warnings';
 
 class FormContainer extends Component {
 
+    handleInputChange(event) {
+
+        const inputName = event.target.name;
+        const inputValue = event.target.value;
+
+        this.setState( {} )
+
+    }
+
     
     
     constructor( props ) {
