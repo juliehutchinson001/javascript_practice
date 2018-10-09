@@ -14,14 +14,14 @@ class FieldsContainer extends Component {
 const Fields = () => {
     return (
         <form>
-            <label>Name: 
-                <input type='text' name='name' />
+            <label htmlFor='user-name' >Name: 
+                <input id='user-name' type='text' name='name' />
             </label>
-            <label>Name: 
-                <input type='email' name='email' />
+            <label htmlFor='user-email' >Email: 
+                <input id='user-email' type='email' name='email' />
             </label>
-            <label>Name: 
-                <input type='password' name='password' />
+            <label htmlFor='user-password' >Password: 
+                <input id='user-password' type='password' name='password' />
             </label>
             <input type='submit' value='submit' />
         </form>
