@@ -2,16 +2,27 @@ import React, { Component } from 'react';
 
 class FieldsContainer extends Component {
     
-    
+    constructor(props) {
+
+        super(props);
+    }
     
     render() {
 
-        return <Fields />;
+        return (
+            <Fields 
+                email={ email } 
+                onChange={onChange} 
+                onSubmit={ onSubmit } 
+                password={ password }
+                user={ user }
+            />
+        );
 
     }
 };
 
-const Fields = () => {
+const Fields = ( {email, onChange, onSubmit, password, user} ) => {
     return (
         <form>
             <label htmlFor='user-name' >Name: 
