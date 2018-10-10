@@ -22,10 +22,17 @@ class FormContainer extends Component {
 
         const submitFieldNameLen = this.state.userName.length > 1;
 
-        if(submitFieldNameLen) { this.setState({ formWarnings: ['Pick a larger name']}) }
+        if(submitFieldNameLen) { 
+            this.setState( 
+                { 
+                    formWarnings: ['Pick a larger name'],
+                    showWarnings: true
+                }
+            ) 
+        }
 
     }
-    
+
     constructor( props ) {
         super( props );
 
@@ -44,23 +51,34 @@ class FormContainer extends Component {
         
         return (
             <Form 
-                user={ userName }
                 email={ userEmail }
-                password={ userPassword }
                 errors={ formWarnings }
-                onChange={ (event) => this.handleInputChange(event) }
-                onSubmit={ (event) => this.handleFormSubmit(event) }
+                onChange={ event => this.handleInputChange(event) }
+                onSubmit={ event => this.handleFormSubmit(event) }
+                password={ userPassword }
+                show={ this.state.showWarnings }                
+                user={ userName }
             />
         );
     }
 };
 
-const Form = () => {
+const Form = ( {email, errors, onChange, onSubmit, password, show, user} ) => {
     return(
         <Fragment>
         
-            <WarningsContainer />
-            <FieldsContainer />
+            <WarningsContainer 
+                className={ show } 
+                errors={ errors } 
+            />
+            
+            <FieldsContainer 
+                email={ email } 
+                onChange={onChange} 
+                onSubmit={ onSubmit } 
+                password={ password }
+                user={ user }
+            />
         
         </Fragment>
     );
