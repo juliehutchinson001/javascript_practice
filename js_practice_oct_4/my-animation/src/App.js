@@ -1,8 +1,20 @@
 import React, { Component, Fragment } from 'react';
-import FieldsContainer from './components/Fields';
+import Fields from './components/Fields';
 import WarningsContainer from './components/Warnings';
 
 class FormContainer extends Component {
+
+    constructor( props ) {
+        super( props );
+
+        this.state = {
+            userName: '',
+            userEmail: '',
+            userPassword: '',
+            formWarnings: [],
+            showWarnings: false 
+        };
+    }
 
     handleInputChange(event) {
 
@@ -33,54 +45,43 @@ class FormContainer extends Component {
 
     }
 
-    constructor( props ) {
-        super( props );
-
-        this.state = {
-            userName: '',
-            userEmail: '',
-            userPassword: '',
-            formWarnings: [],
-            showWarnings: false 
-        };
-    }
-
     render() {
         
-        const { userName, userEmail, userPassword, formWarnings } = this.state;
+        const { userName, userEmail, userPassword, formWarnings, showWarnings } = this.state;
         
         return (
-            <Form 
+            <Main 
                 email={ userEmail }
                 errors={ formWarnings }
-                onChange={ event => this.handleInputChange(event) }
-                onSubmit={ event => this.handleFormSubmit(event) }
+                handleChange={ event => this.handleInputChange(event) }
+                handleSubmit={ event => this.handleFormSubmit(event) }
                 password={ userPassword }
-                show={ this.state.showWarnings }                
+                show={ showWarnings }                
                 user={ userName }
             />
         );
+
     }
 };
 
-const Form = ( {email, errors, onChange, onSubmit, password, show, user} ) => {
+const Main = ({ email, errors, handleChange, handleSubmit, password, show, user }) => {
     return(
-        <Fragment>
+        <main>
         
             <WarningsContainer 
-                className={ show } 
+                show={ show } 
                 errors={ errors } 
             />
-            
-            <FieldsContainer 
+
+            <Fields 
                 email={ email } 
-                onChange={onChange} 
-                onSubmit={ onSubmit } 
+                handleChange={ handleChange } 
+                handleSubmit={ handleSubmit } 
                 password={ password }
                 user={ user }
             />
         
-        </Fragment>
+        </main>
     );
 }
 
