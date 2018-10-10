@@ -8,8 +8,11 @@ class FormContainer extends Component {
 
         const inputName = event.target.name;
         const inputValue = event.target.value;
+        
+        const userFields = {};
+        userFields[inputName] = inputValue;
 
-        this.setState( {} )
+        this.setState( userFields );
 
     }
 
