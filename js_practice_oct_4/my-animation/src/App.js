@@ -1,28 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Fields from './components/Fields';
 import WarningsContainer from './components/Warnings';
+import checkErrors from './helpers/check_errors';
 
 class FormContainer extends Component {
 
     constructor( props ) {
         super( props );
 
-        this.state = {
-            userName: '',
-            userEmail: '',
-            userPassword: '',
-            formWarnings: [],
-            showWarnings: false 
-        };
-    }
 
-    handleInputChange(event) {
-
-        const inputName = event.target.name;
-        const inputValue = event.target.value;
-        
-        const userFields = {};
-        userFields[inputName] = inputValue;
 
         this.setState( userFields );
 
@@ -32,12 +18,13 @@ class FormContainer extends Component {
 
         event.preventDefault();
 
-        const submitFieldNameLen = this.state.userName.length > 1;
+        const errorsArr = checkErrors(this.state.formFields);
+        const errors = errorsArr.filter(error => error !== undefined);
 
-        if(submitFieldNameLen) { 
+        if (errors.length) { 
             this.setState( 
                 { 
-                    formWarnings: ['Pick a larger name'],
+                    formWarnings: errors,
                     showWarnings: true
                 }
             ) 
@@ -47,17 +34,18 @@ class FormContainer extends Component {
 
     render() {
         
-        const { userName, userEmail, userPassword, formWarnings, showWarnings } = this.state;
-        
+        const { formWarnings, showWarnings } = this.state;
+        const { name, email, password,  } = this.state.formFields;
+
         return (
             <Main 
-                email={ userEmail }
+                email={ email.value }
                 errors={ formWarnings }
                 handleChange={ event => this.handleInputChange(event) }
                 handleSubmit={ event => this.handleFormSubmit(event) }
-                password={ userPassword }
+                password={ password.value }
                 show={ showWarnings }                
-                user={ userName }
+                user={ name.value }
             />
         );
 
@@ -67,7 +55,7 @@ class FormContainer extends Component {
 const Main = ({ email, errors, handleChange, handleSubmit, password, show, user }) => {
     return(
         <main>
-        
+
             <WarningsContainer 
                 show={ show } 
                 errors={ errors } 
