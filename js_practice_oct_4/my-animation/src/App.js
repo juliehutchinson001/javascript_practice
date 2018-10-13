@@ -8,7 +8,33 @@ class FormContainer extends Component {
     constructor( props ) {
         super( props );
 
+        this.state = {
+            formWarnings: [],
+            showWarnings: false,
+            formFields: {
+                name: {
+                    value: '',
+                    id: 'user-name'
+                },
+                email: {
+                    value: '',
+                    id: 'user-email'
+                },
+                password: {
+                    value: '',
+                    id: 'user-password'
+                },
+            },
+        };
+    }
 
+    handleInputChange(event) {
+
+        const inputName = event.target.name;
+        const inputValue = event.target.value;
+        
+        const userFields = {...this.state.formFields};
+        userFields[inputName].value = inputValue;
 
         this.setState( userFields );
 
