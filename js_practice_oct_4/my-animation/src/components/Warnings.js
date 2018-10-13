@@ -15,5 +15,10 @@ const WarningsContainer = ({ show, errors }) => {
 
     const classStyle = show ? 'showErrors' : 'hideErrors'
 
+    return <Warnings errors={ errorsArr } styles={ classStyle } />;
+
 };
+
+const Warnings = ({ errors, styles }) => <ul className={ styles }>{ errors }</ul>;
+
 export default WarningsContainer;
