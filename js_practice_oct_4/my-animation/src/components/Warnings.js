@@ -5,5 +5,15 @@ import React from 'react';
 //  * You need lifecycles
 //  * There may be another one but those two are the ones I know / most used
 
+const WarningsContainer = ({ show, errors }) => {
+    
+    const errorsArr = errors.map((error, index) => (
+            <li key={ index }>
+                <a href={ '#' + error.errorId }>{ error.errorName }</a>
+            </li>
+    ));
 
+    const classStyle = show ? 'showErrors' : 'hideErrors'
+
+};
 export default WarningsContainer;
