@@ -45,6 +45,9 @@ class App extends Component {
 
     newList[itemToGoUp] = itemToGoDown;
     newList[itemToGoUp - 1] = itemToJumpUp;
+
+    this.setState({listedItems: newList});
+
   }
 
   handleGoUp(event) {
@@ -53,10 +56,9 @@ class App extends Component {
     const itemToGoUp = parseInt(event.target.dataset.idup, 10);
 
     if (isItemToGoUpFirstInList) {			
-      wrapFirstItem(itemToGoUp);
+      this.wrapFirstItem(itemToGoUp);
     } else {
-      moveItemUp(itemToGoUp);
-      this.setState({listedItems: newList});
+      this.moveItemUp(itemToGoUp);
     }
   }
 
