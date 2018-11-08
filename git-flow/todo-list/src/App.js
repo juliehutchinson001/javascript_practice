@@ -36,6 +36,7 @@ class App extends Component {
   wrapFirstItem(itemToGoUp) {
     const newList = this.state.listedItems.filter((item, idx) => idx !== itemToGoUp);
     newList.push(this.state.listedItems[itemToGoUp]);
+    this.setState({listedItems: newList});
   }
   
   moveItemUp(itemToGoUp) {
@@ -52,8 +53,8 @@ class App extends Component {
 
   handleGoUp(event) {
     const FIRST_ITEM = 0;
-    const isItemToGoUpFirstInList = itemToGoUp === FIRST_ITEM;
     const itemToGoUp = parseInt(event.target.dataset.idup, 10);
+    const isItemToGoUpFirstInList = itemToGoUp === FIRST_ITEM;
 
     if (isItemToGoUpFirstInList) {			
       this.wrapFirstItem(itemToGoUp);
