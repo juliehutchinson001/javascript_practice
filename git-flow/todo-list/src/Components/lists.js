@@ -1,8 +1,19 @@
 import React, { Fragment } from 'react';
 
-const lists = () => (
-    <ul>
-    </ul>
+const ListsContainer = ({ items, title }) => {
+    const itemsLis = items.map((item, i) => <li key={ i }>{ item }</li>);
+    return (
+        <Fragment>
+            <h1>{ title }</h1>
+            <ul>
+                { itemsLis }
+            </ul>
+        </Fragment>
+    );
+};
+
+const Lists = () => (
+
 );
 
-export default lists;
+export default ListsContainer;

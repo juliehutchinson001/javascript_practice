@@ -7,74 +7,36 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: {
-        'general': {
-          listedItems: []
+        input: {
+            value: '',
         },
-        'list1': {
-          listedItems: []
+        lists: {
+            general: [],
+            list1: [],
+            list2: [],
         },
-        'list2': {
-          listedItems: []
-        }
-      },
-      addedItem: ""
     };
-
-    this.getNewTodo = this.getNewTodo.bind(this);
-    this.wrapFirstItem = this.wrapFirstItem.bind(this);
-    this.moveItemUp = this.moveItemUp.bind(this);
-    this.updateListsStateArray = this.updateListsStateArray.bind(this);
   }
 
-  getNewTodo(item, index) {
-    const { value } = this.state.lists[0];
 
-    return (
-      <li key={ index } data-id={ value }>
-        { item }
-        <button
-          type="button"
-          data-idup={index}
-          onClick={event => this.handleGoUp(event)}
-        >
-          Up
-        </button>
-        <button
-          type="button"
-          data-idelete={ index }
-          onClick={ event => this.handleDelete(event) }
-        >
-          Delete
-        </button>
-        <Options
-          handleOptionChange={ event => this.handleOptionChange(event) }
-          valueSelection={ value }
-        />
-      </li>
-    );
-  }
 
-  newInputOnChange(event) {
+  handleUpdateOfInputValue(event) {
     const addedItem = event.target.value;
     addedItem !== '' && this.setState({ addedItem });
   }
 
-  updateListsStateArray(location) {
-    const { addedItem, lists } = this.state;
-    const copyOfLists = {...lists}; // {g: {0}, l1:{1}, l2:{2}}
-    const FIRST_ITEM = 0;
-    const COUNT_POSITIONS = 1;
-    const newTodoAdded = { ...copyOfLists.general }; // general: {0-> listedItems:[...]}
-    const LAST_ITEM = newTodoAdded.listedItems.length; // listedItems: [_, _, _].length
+  addItemToList(itemToInsert, list) {
+    const newList = {};
+    newList[list] = [...this.state.lists[list], itemToInsert];
 
-    if (location === 'end') {
-      newTodoAdded.listedItems[LAST_ITEM - COUNT_POSITIONS] = addedItem; // {0-> true, [..., addedItem]}
-    } else if (location === 'start') {
-      newTodoAdded.listedItems[FIRST_ITEM] = addedItem; // {0-> true, [..., addedItem]}
-    }
-    copyOfLists.splice(FIRST_ITEM, COUNT_POSITIONS, newTodoAdded); // [{0-> true, [addedItem]}, {1}, {2}]
-    return copyOfLists;
+    this.setState(oldState => {
+        const newState = Object.assign({}, oldState.lists, newList);
+
+        return {
+            input: { value: '' },
+            lists: newState,
+        }
+    });
   }
 
   newTodoOnEnter(event) {
@@ -141,26 +103,15 @@ class App extends Component {
     }
   }
 
-  handleOptionChange(event) {
-    const newListCategory = event.target.value;
-    this.setState(oldState => {
-
-    });
-  }
 
   render() {
-    const FIRST_ITEM = 0;
-    const { lists } = this.state;
-    const listTodos = lists[FIRST_ITEM].listedItems.map((item, i) =>
-      this.getNewTodo(item, i)
-    );
 
     return (
       <AppPresentation
         listTodos={listTodos}
         newTodoOnEnter={event => this.newTodoOnEnter(event)}
         newTodoAtBeginning={event => this.newTodoAtBeginning(event)}
-        newInputOnChange={event => this.newInputOnChange(event)}
+        handleUpdateOfInputValue={event => this.handleUpdateOfInputValue(event)}
       />
     );
   }
@@ -169,7 +120,7 @@ class App extends Component {
 const AppPresentation = ({
   listTodos,
   newTodoOnEnter,
-  newInputOnChange,
+  handleUpdateOfInputValue,
   newTodoAtBeginning
 }) => (
   <div className="app__inputs--multiple">
@@ -177,13 +128,13 @@ const AppPresentation = ({
       className="app__input--primary"
       type="text"
       onKeyPress={newTodoOnEnter}
-      onChange={newInputOnChange}
+      onChange={handleUpdateOfInputValue}
       />
       <input
       className="app__input--secondary"
       type="text"
       onKeyPress={newTodoAtBeginning}
-      onChange={newInputOnChange}
+      onChange={handleUpdateOfInputValue}
     />
     <h1 className="app__title" >Hello</h1>
     <ul className="app__todos" >{listTodos}</ul>
