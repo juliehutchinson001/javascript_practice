@@ -7,21 +7,36 @@ class App extends Component {
     super(props);
 
     this.state={
-      input:'',
-      secret: 'Julie'
+      disabled: false,
+      inputVal: '',
     }
   }
 
-  handleChange(event) {
+  handleValueChange(event) {
 
+    const isSecretWord = event.target.value === 'Julie';
+    
+    if (isSecretWord) {
+      this.setState({ disabled: true, inputVal: 'Bingo!!!' })
+      
+    } else {
+      this.setState({ disabled: false, inputVal: event.target.value })
+      
+    }
   }
   
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <label>Enter a new entry: <input value={(event) => this.handleChange(event)}/></label>
-        </header>
+          <label>Enter a new entry: 
+            <input 
+              onChange={ (event) => this.handleValueChange(event) }
+              value={ this.state.inputVal }
+              placeholder="Guess the secret word"
+              disabled={ this.state.disabled ? "disabled" : "" }
+              style={{ marginLeft: '20px' }}
+            />
+          </label>
       </div>
     );
   }
