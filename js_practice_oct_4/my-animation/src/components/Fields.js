@@ -3,6 +3,7 @@ import React from 'react';
 const Fields = ({ email, handleChange, handleSubmit, password, user }) => (
         <form onSubmit={ handleSubmit }>
             <label>Name:
+            <input id='user' type='text' name='name' onChange={ handleChange } value={ user } />            
             </label>
             <label>Email:
                 <input id='user-email' type='email' name='email' onChange={ handleChange } value={ email } />
