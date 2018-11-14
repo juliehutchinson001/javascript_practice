@@ -1,19 +1,21 @@
 import React, { Fragment } from 'react';
+import Bucket from './options';
 
-const ListsContainer = ({ items, title }) => {
-    const itemsLis = items.map((item, i) => <li key={ i }>{ item }</li>);
-    return (
+const ListsContainer = ({ lists, addItemToList }) => {
+
+    const buckets = Object.keys(lists).map((listName, i) => (
         <Fragment>
-            <h1>{ title }</h1>
-            <ul>
-                { itemsLis }
+            <h1 key={i}>{listName}</h1>
+            <ul key={i}>
+                <Bucket
+                    items={lists[listName]}
+                    addItemToList={addItemToList}
+                />
             </ul>
         </Fragment>
-    );
+    ));
+
+    return buckets;
 };
-
-const Lists = () => (
-
-);
 
 export default ListsContainer;
