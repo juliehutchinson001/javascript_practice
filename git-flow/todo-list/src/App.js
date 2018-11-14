@@ -12,12 +12,15 @@ class App extends Component {
                 general: [],
                 list1: [],
                 list2: [],
+                list3: [],
+                list4: []
             },
         };
     }
 
     updateInputValue(event) {
-        this.setState({ input: { value: event.target.value } });
+        const notEmpty = event.target.value !== '';
+        notEmpty && this.setState({ input: { value: event.target.value } });
     }
 
     addItemToList(itemToInsert, list) {
@@ -34,22 +37,31 @@ class App extends Component {
         });
     }
 
+    updateListOnEnter(event) {
+        //onKeyPress tracks the 'enter' key to update the general list
+        const userSearchTerm = this.state.input.value;
+        const enterKeyWasPressed = event.key === 'Enter' || event.keyCode === 13;
+        const notEmpty = event.target.value !== '';
+
+
+        if(notEmpty && enterKeyWasPressed) {
+            this.addItemToList(userSearchTerm, 'general')
+        }
+
+    }
+
     render() {
         return (
             <main className="app" >
                 <input
                     className="app__input"
-                    onInput={event => this.updateInputValue(event)}
-                    value={this.state.input.value}
+                    onKeyPress={ event => this.updateListOnEnter(event) }
+                    onInput={ event => this.updateInputValue(event) }
+                    value={ this.state.input.value }
                 />
-                <button
-                    onClick={() => this.addItemToList(this.state.input.value, 'general')}
-                >
-                    Enter Item
-                </button>
                 <ListsContainer
-                    lists={this.state.lists}
-                    addItemToList={(item, list) => this.addItemToList(item, list)}
+                    lists={ this.state.lists }
+                    addItemToList={ (item, list) => this.addItemToList(item, list) }
                 />
             </main>
         );

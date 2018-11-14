@@ -9,6 +9,8 @@ const Options = ({ items, addItemToList }) => {
                 <option value='general'>General</option>
                 <option value='list1'>List1</option>
                 <option value='list2'>List2</option>
+                <option value='list3'>List1</option>
+                <option value='list4'>List2</option>
             </select>
         </li>
     ));
