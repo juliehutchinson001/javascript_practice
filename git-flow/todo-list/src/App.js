@@ -9,11 +9,11 @@ class App extends Component {
                 value: '',
             },
             lists: {
-                general: [],
-                list1: [],
-                list2: [],
-                list3: [],
-                list4: []
+                General: [],
+                InProgress: [],
+                Urgent: [],
+                Pasts: [],
+                NonUrgent: []
             },
         };
     }
@@ -45,7 +45,7 @@ class App extends Component {
 
 
         if(notEmpty && enterKeyWasPressed) {
-            this.addItemToList(userSearchTerm, 'general')
+            this.addItemToList(userSearchTerm, 'General')
         }
 
     }
@@ -57,6 +57,7 @@ class App extends Component {
                     className="app__input"
                     onKeyPress={ event => this.updateListOnEnter(event) }
                     onInput={ event => this.updateInputValue(event) }
+                    placeholder='Enter a new TO-DO'
                     value={ this.state.input.value }
                 />
                 <ListsContainer
