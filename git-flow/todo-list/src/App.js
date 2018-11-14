@@ -1,92 +1,60 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import ListsContainer from './Components/lists';
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          input: {
-              value: '',
-          },
-          lists: {
-              general: [],
-              list1: [],
-              list2: [],
-          },
-      };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            input: {
+                value: '',
+            },
+            lists: {
+                general: [],
+                list1: [],
+                list2: [],
+            },
+        };
+    }
 
-  updateInputValue(event) {
-      this.setState({ input: { value: event.target.value } });
-  }
+    updateInputValue(event) {
+        this.setState({ input: { value: event.target.value } });
+    }
 
-  addItemToList(itemToInsert, list) {
-      const newList = {};
-      newList[list] = [...this.state.lists[list], itemToInsert];
+    addItemToList(itemToInsert, list) {
+        const newList = {};
+        newList[list] = [...this.state.lists[list], itemToInsert];
 
-      this.setState(oldState => {
-          const newState = Object.assign({}, oldState.lists, newList);
+        this.setState(oldState => {
+            const newState = Object.assign({}, oldState.lists, newList);
 
-          return {
-              input: { value: '' },
-              lists: newState,
-          }
-      });
-  }
+            return {
+                input: { value: '' },
+                lists: newState,
+            }
+        });
+    }
 
-  render() {
-      return (
-          <Fragment>
-              <input
-                  onInput={ event => this.updateInputValue(event) }
-                  value={ this.state.input.value }
-              />
-              <button
-                  onClick={ () => this.addItemToList(this.state.input.value, 'general') }
-              >
-                  Enter Item
-              </button>
-              <ListsContainer
-                  lists={ this.state.lists }
-                  addItemToList={ (item, list) => this.addItemToList(item, list) }
-              />
-          </Fragment>
-      );
-  }
+    render() {
+        return (
+            <Fragment>
+                <input
+                    onInput={event => this.updateInputValue(event)}
+                    value={this.state.input.value}
+                />
+                <button
+                    onClick={() => this.addItemToList(this.state.input.value, 'general')}
+                >
+                    Enter Item
+                </button>
+                <ListsContainer
+                    lists={this.state.lists}
+                    addItemToList={(item, list) => this.addItemToList(item, list)}
+                />
+            </Fragment>
+        );
+    }
 }
-
-const ListsContainer = ({ lists, addItemToList }) => {
-
-  const buckets = Object.keys(lists).map((listName, i) => (
-      <Fragment>
-          <h1 key={ i }>{ listName }</h1>
-          <ul key={ i }>
-              <Bucket
-                  items={ lists[listName] }
-                  addItemToList={ addItemToList }
-              />
-          </ul>
-      </Fragment>
-  ));
-
-  return buckets;
-};
-
-const Bucket = ({ items, addItemToList }) => {
-
-  const itemsLis = items.map((item, i) => (
-      <li key={ i }>
-          <span>{ item }</span>
-          <select onChange={ event => addItemToList(item, event.target.value) } >
-              <option value='general'>General</option>
-              <option value='list1'>List1</option>
-              <option value='list2'>List2</option>
-          </select>
-      </li>
-  ));
-
-  return itemsLis;
-};
 
 // New challenge:
 // There are five lists INCLUDING a list called default:
