@@ -3,7 +3,8 @@
   flex-wrap: wrap; }
 
 .app__input {
-  width: 95%; }
+  width: 95%;
+  height: 1.5rem; }
 
 .list__container {
   width: 30%; }
