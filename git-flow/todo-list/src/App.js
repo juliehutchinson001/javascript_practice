@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import ListsContainer from './Components/lists';
 
 class App extends Component {
@@ -36,7 +36,7 @@ class App extends Component {
 
     render() {
         return (
-            <Fragment>
+            <main className="app" >
                 <input
                     className="app__input"
                     onInput={event => this.updateInputValue(event)}
@@ -51,7 +51,7 @@ class App extends Component {
                     lists={this.state.lists}
                     addItemToList={(item, list) => this.addItemToList(item, list)}
                 />
-            </Fragment>
+            </main>
         );
     }
 }
