@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import ListsContainer from './Components/lists';
-import "./App.css";
 
 class App extends Component {
     constructor(props) {
@@ -39,6 +38,7 @@ class App extends Component {
         return (
             <Fragment>
                 <input
+                    className="app__input"
                     onInput={event => this.updateInputValue(event)}
                     value={this.state.input.value}
                 />

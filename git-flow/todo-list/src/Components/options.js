@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Bucket = ({ items, addItemToList }) => {
+const Options = ({ items, addItemToList }) => {
 
-    const itemsLis = items.map((item, i) => (
-        <li key={i}>
-            <span>{item}</span>
-            <select onChange={event => addItemToList(item, event.target.value)} >
+    const itemsLis = items.map((item, index) => (
+        <li key={ index }>
+            <span>{ item }</span>
+            <select onChange={ event => addItemToList(item, event.target.value) } >
                 <option value='general'>General</option>
                 <option value='list1'>List1</option>
                 <option value='list2'>List2</option>
@@ -16,4 +16,4 @@ const Bucket = ({ items, addItemToList }) => {
     return itemsLis;
 };
 
-export default Bucket;
+export default Options;
