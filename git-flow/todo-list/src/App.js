@@ -10,12 +10,17 @@ class App extends Component {
             },
             lists: {
                 General: [],
-                InProgress: [],
+                'In-Progress': [],
                 Urgent: [],
                 Pasts: [],
-                NonUrgent: []
+                'Non-Urgent': []
+            },
+            todo: {
+                active: null
             },
         };
+
+        this.getObjectSize = this.getObjectSize.bind(this);
     }
 
     updateInputValue(event) {
@@ -43,9 +48,36 @@ class App extends Component {
         const enterKeyWasPressed = event.key === 'Enter' || event.keyCode === 13;
         const notEmpty = event.target.value !== '';
 
-
         if(notEmpty && enterKeyWasPressed) {
             this.addItemToList(userSearchTerm, 'General')
+        }
+    }
+
+    getObjectSize() {
+        Object.objSize = anObject => {
+            const oSize = 0;
+            for (const key in anObject) {
+                if (anObject.hasOwnProperty(key)) oSize++;
+            }
+            return oSize;
+        };
+
+        let objSize = Object.objSize(this.state.lists);
+        return objSize;
+    }
+
+    moveTodo (event, direction) {
+        const buttonPressed = event.target.dataset;
+
+        if(direction === 'left') {
+            this.setState({ todo: { active: parseInt(buttonPressed.idleft, 10) } });
+
+            this.addItemToList()
+
+        } else if (direction === 'right') {
+            this.setState({ todo: { active: parseInt(buttonPressed.idright, 10) }});
+            this.addItemToList()
+
         }
 
     }
@@ -62,6 +94,7 @@ class App extends Component {
                 />
                 <ListsContainer
                     lists={ this.state.lists }
+                    moveTodo={ this.moveTodo }
                     addItemToList={ (item, list) => this.addItemToList(item, list) }
                 />
             </main>
