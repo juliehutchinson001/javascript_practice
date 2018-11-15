@@ -5,6 +5,7 @@ const Options = ({ items, addItemToList, moveTodo }) => {
     const itemsLis = items.map((item, index) => (
         <li className='options__todo' key={ index }>
             <button
+                className='options__left--arrow'
                 type='button'
                 onClick={ event => moveTodo(event, 'left')}
                 data-idleft={ index }
@@ -13,6 +14,7 @@ const Options = ({ items, addItemToList, moveTodo }) => {
                 </button>
                 <span>{ item }</span>
                 <button
+                className='options__right--arrow'
                 data-idright={ index }
                 type='button'
                 onClick={ event => moveTodo(event, 'right')}
