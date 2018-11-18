@@ -1,5 +1,6 @@
 import React from 'react';
 import App from '../App';
+import { shallow } from 'enzyme';
 import findSiblingList , {
     hasIndexOverlaped,
     getLeftIndex,
@@ -78,5 +79,9 @@ describe('Finding sibling list', () => {
 
     it('finds in progress list from general list', () => {
         // findSiblingList();
+        expect.assertions(1);
+        const wrapper = shallow(<App />);
+
+        expect(wrapper.find('input').exists()).toBeTruthy();
     });
 });
