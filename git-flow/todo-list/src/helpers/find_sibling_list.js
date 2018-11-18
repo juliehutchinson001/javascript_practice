@@ -34,3 +34,9 @@ const findSiblingList = (currentIndex, direction, lengthOfList) => {
 };
 
 export default findSiblingList;
+
+export {
+    hasIndexOverlaped,
+    getLeftIndex,
+    getRightIndex,
+}

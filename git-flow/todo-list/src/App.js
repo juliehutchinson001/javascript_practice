@@ -13,73 +13,50 @@ class App extends Component {
                 'In-Progress': [],
                 Urgent: [],
                 Pasts: [],
-                'Non-Urgent': []
-            },
-            todo: {
-                active: null
-            },
+                'Non-Urgent': [],
+            }
         };
 
-        this.getObjectSize = this.getObjectSize.bind(this);
+        this.addItemToList = this.addItemToList.bind(this);
     }
 
     updateInputValue(event) {
-        const notEmpty = event.target.value !== '';
-        notEmpty && this.setState({ input: { value: event.target.value } });
+        this.setState({ input: { value: event.target.value } });
     }
 
-    addItemToList(itemToInsert, list) {
-        const newList = {};
-        newList[list] = [...this.state.lists[list], itemToInsert];
-
+    addItemToList(itemToInsert, newLocation, currentLocation=undefined) {
         this.setState(oldState => {
+            const newList = {};
+            const isItemBeingMoved = currentLocation !== undefined;
+
+            if (isItemBeingMoved) {
+                // Remove item from current location
+                const currentList = oldState.lists[currentLocation];
+                newList[currentLocation] = currentList.filter(item => item !== itemToInsert);
+            }
+
+            newList[newLocation] = [...oldState.lists[newLocation], itemToInsert];
+
             const newState = Object.assign({}, oldState.lists, newList);
+            // const newState = {...oldState.lists, ...newList};
 
             return {
                 input: { value: '' },
                 lists: newState,
-            }
+            };
         });
     }
 
-    updateListOnEnter(event) {
-        //onKeyPress tracks the 'enter' key to update the general list
-        const userSearchTerm = this.state.input.value;
+    createItem(event) {
+        //onKeyPress tracks the 'enter' key to create a new item
+        const itemToInsert = this.state.input.value;
+        const itemIsNotEmpty = itemToInsert !== '';
+
         const enterKeyWasPressed = event.key === 'Enter' || event.keyCode === 13;
-        const notEmpty = event.target.value !== '';
 
-        if(notEmpty && enterKeyWasPressed) {
-            this.addItemToList(userSearchTerm, 'General')
+        if (itemIsNotEmpty && enterKeyWasPressed) {
+            this.addItemToList(itemToInsert, 'General');
         }
-    }
-
-    getObjectSize() {
-        Object.objSize = anObject => {
-            const oSize = 0;
-            for (const key in anObject) {
-                if (anObject.hasOwnProperty(key)) oSize++;
-            }
-            return oSize;
-        };
-
-        let objSize = Object.objSize(this.state.lists);
-        return objSize;
-    }
-
-    moveTodo (event, direction) {
-        const buttonPressed = event.target.dataset;
-
-        if(direction === 'left') {
-            this.setState({ todo: { active: parseInt(buttonPressed.idleft, 10) } });
-
-            this.addItemToList()
-
-        } else if (direction === 'right') {
-            this.setState({ todo: { active: parseInt(buttonPressed.idright, 10) }});
-            this.addItemToList()
-
-        }
-
     }
 
     render() {
@@ -87,15 +64,14 @@ class App extends Component {
             <main className="app" >
                 <input
                     className="app__input"
-                    onKeyPress={ event => this.updateListOnEnter(event) }
-                    onInput={ event => this.updateInputValue(event) }
+                    onKeyPress={ event => this.createItem(event) }
+                    onChange={ event => this.updateInputValue(event) }
                     placeholder='Enter a new TO-DO'
                     value={ this.state.input.value }
                 />
                 <ListsContainer
                     lists={ this.state.lists }
-                    moveTodo={ this.moveTodo }
-                    addItemToList={ (item, list) => this.addItemToList(item, list) }
+                    addItemToList={ this.addItemToList }
                 />
             </main>
         );
