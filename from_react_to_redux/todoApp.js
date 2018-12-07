@@ -1,48 +1,51 @@
 class App extends React.Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.state = {
-			inputValue: '',
-			todos: [],
-		}
-	}
+        this.state = {
+            inputValue: '',
+            todos: []
+        };
+    }
 
-	updateInputValue(event) {
-		const newInputValue = event.target.value;
-		this.setState({inputValue: newInputValue});
-	}
+    updateInputValue(event) {
+        const newInputValue = event.target.value;
+        this.setState({ inputValue: newInputValue });
+    }
 
-	enterNewInput(event) {
-		const newTodo = this.state.inputValue;
-		let newTodoList = [];
-	    const key = event.key || event.keyCode;
+    enterNewInput(event) {
+        const newTodo = this.state.inputValue;
+        let newTodoList = [];
+        const inkey = event.key || event.keyCode;
 
-		if (key === 'Enter' || key === 13) {
-            this.setState = (oldState => {
-				newTodoList = [...oldState.todos, newTodo];
+        if (inkey === 'Enter' || inkey === 13) {
+            this.setState(oldState => {
+                newTodoList = [...oldState.todos, newTodo];
 
-				return {todos: newTodoList};
-			})
-		}
-	}
+                return { todos: newTodoList };
+            });
+        }
+    }
 
-  render() {
-	  const {todos} = this.state;
-	  const todosArr = todos.map(todoName => <div key={todoName} >{todoName}</div>)
-    return (
-	    <div>
-			<input
-				type='text'
-				onChange={event => this.updateInputValue(event)}
-				onKeyPress={event => this.enterNewInput(event)}
-			/>
-			{this.todosArr}
-		</div>
-	);
-  }
+    render() {
+        const { todos } = this.state;
+        const todosArr = todos.map(todoName => (<div key={todoName}>{todoName}</div>));
+
+        return (
+            <div>
+                <input
+                    type='text'
+                    onChange={event => this.updateInputValue(event)}
+                    onKeyPress={event => this.enterNewInput(event)}
+                />
+                {todosArr}
+            </div>
+        );
+    }
 }
-ReactDOM.render(<App/>, window.root);
+ReactDOM.render(<App />, window.root);
+
+
 
 
 
