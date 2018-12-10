@@ -2,13 +2,11 @@ const BEGINNING_OF_LIST = 0;
 
 const hasIndexOverlaped = (index, lengthOfList) => {
     const isItemOverlaped = index < BEGINNING_OF_LIST || index >= lengthOfList;
-
     return isItemOverlaped;
 };
 
 const getLeftIndex = (leftIndex, isItemOverlaped, lengthOfList) => {
     const endOfList = lengthOfList - 1;
-
     return isItemOverlaped ? endOfList : leftIndex;
 };
 
