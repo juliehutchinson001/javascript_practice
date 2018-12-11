@@ -27,18 +27,34 @@ const Item = props => {
             >
                 {'>'}
             </button>
-            <select
-                className='options__container'
-                onChange={ event => addItemToList(item, event.target.value, currentLocation) }
-                value={ currentLocation }
-            >
-                <option value='General'>General</option>
-                <option value='In-Progress'>In-Progress</option>
-                <option value='Urgent'>Urgent</option>
-                <option value='Pasts'>Pasts</option>
-                <option value='Non-Urgent'>Non-Urgent</option>
-            </select>
+            <Option
+                addItemToList={ addItemToList }
+                currentLocation={ currentLocation }
+                item={ item }
+            />
         </li>
+    );
+}
+
+const Option = (props) => {
+    const {
+        addItemToList,
+        currentLocation,
+        item,
+    } = props;
+
+    return (
+        <select
+            className='options__container'
+            onChange={ event => addItemToList(item, event.target.value, currentLocation) }
+            value={ currentLocation }
+        >
+            <option value='General'>General</option>
+            <option value='In-Progress'>In-Progress</option>
+            <option value='Urgent'>Urgent</option>
+            <option value='Pasts'>Pasts</option>
+            <option value='Non-Urgent'>Non-Urgent</option>
+        </select>
     );
 }
 
