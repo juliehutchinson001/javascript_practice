@@ -36,7 +36,7 @@ const Item = props => {
     );
 }
 
-const Option = (props) => {
+const Option = props => {
     const {
         addItemToList,
         currentLocation,
