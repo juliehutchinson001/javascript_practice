@@ -38,25 +38,25 @@
 // })
 
 // Challenge: Find all users with name Julie
-// const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 
-// MongoClient.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true }, (err, client) => {
-//     if (err) {
-//         return console.log(`Couldn't connect to db`);
-//     }
+MongoClient.connect('mongodb://localhost:27017/TodoApp', { useNewUrlParser: true }, (err, client) => {
+    if (err) {
+        return console.log(`Couldn't connect to db`);
+    }
 
-//     const db = client.db('TodoApp');
+    const db = client.db('TodoApp');
 
-//     db.collection('Users')
-//         .find({ name: 'Julie'})
-//         .toArray()
-//         .then((user) => {
-//             console.log(JSON.stringify(user, null, 3));
-//         })
+    db.collection('Users')
+        .find({ name: 'Julie'})
+        .toArray()
+        .then((user) => {
+            console.log(JSON.stringify(user, null, 3));
+        })
 
-//     client.close();
+    client.close();
 
-// })
+})
 
 // Challenge: Update a record
 const { MongoClient, ObjectID } = require('mongodb');
