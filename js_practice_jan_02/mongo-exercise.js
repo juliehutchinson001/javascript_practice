@@ -21,19 +21,21 @@
 //     //         console.log(JSON.stringify(result, null, 3));
 //     //     }
 //     // })
-//     // db.collection('Users')
-//     //     .findOne({name: 'Julie'})
-//         // .toArray()
-//         // .then(user => console.log(JSON.stringify(user, null, 2)))
-//         // .then(user => console.log(JSON.stringify(user)));
-//     const id = new ObjectID('5c2974609cfc4571b0a64202');
-//     const users = db.collection('Users');
-//         users.findOne({'_id': id})
-//         // .toArray()
-//         .then(user => console.log(JSON.stringify(user, null, 2)))
-//         // .then(user => console.log(JSON.stringify(user)));
 
-//     client.close();
+// db.collection('Users')
+    // .findOne({name: 'Julie'})
+    // .toArray()
+    // .then(user => console.log(JSON.stringify(user, null, 2)))
+    // .then(user => console.log(JSON.stringify(user)));
+
+const id = new ObjectID('5c2974609cfc4571b0a64202');
+const users = db.collection('Users');
+    users.findOne({'_id': id})
+    .toArray()
+    .then(user => console.log(JSON.stringify(user, null, 2)))
+    .then(user => console.log(JSON.stringify(user)));
+
+client.close();
 
 // })
 
