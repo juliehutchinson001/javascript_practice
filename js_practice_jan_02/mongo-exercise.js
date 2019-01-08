@@ -15,12 +15,12 @@
 //     //     date: new Date()
 //     // }, (err, result) => {
 
-//     //     if (err) {
-//     //         console.log('error');
-//     //     } else {
-//     //         console.log(JSON.stringify(result, null, 3));
-//     //     }
-//     // })
+    //     if (err) {
+    //         console.log('error');
+    //     } else {
+    //         console.log(JSON.stringify(result, null, 3));
+    //     }
+    // })
 
 db.collection('Users')
     .findOne({name: 'Julie'})
