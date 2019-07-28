@@ -1,8 +1,7 @@
 # Asana's API Take Home Assessment
 
->* This take home consist in building a new feature for Asana's users that allows them to hide, delete, update, create
-   and show all tasks they have in their personal accounts from Asana.
->* It was built in Vanilla Javascript and Sass.
+>* This is a new feature for Asana's users that allows them to hide, delete, update, create and show all tasks they have in their personal accounts from Asana.
+>* It was built with Javascript and Sass.
 
 <br />
 <br />
