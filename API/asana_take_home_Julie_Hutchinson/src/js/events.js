@@ -12,12 +12,17 @@ const addHideRowEvent = hideBtn => {
 /**
  * @summary Toggle the delete button's visibility when task comes in and out of focus
  * @param {HTMLElement} taskInput The input of the task
+ * @param {HTMLElement} deleteBtn The delete button in every task
  * @returns void
  */
-const addToggleDeleteBtnEvent = taskInput => {
-  const deleteRowBtn = document.querySelector(".btn--caution");
+const addToggleDeleteBtnEvent = (taskInput, deleteBtn) => {
   taskInput.addEventListener("click", () => {
-    deleteRowBtn.style.visibility = "visible";
+    deleteBtn.style.visibility = "visible";
+    deleteBtn.style.opacity = 1;
+  });
+
+  taskInput.addEventListener("focusout", () => {
+    deleteBtn.style.opacity = 0;
   });
 };
 
@@ -32,6 +37,11 @@ const addEditEvent = taskInput => {
   });
 };
 
+/**
+ * @summary Adds an event that sets the focus on the input
+ * @param {HTMLElement} taskInput The input of the task
+ * @returns void
+ */
 const addTaskFocusEvent = taskInput => {
   taskInput.addEventListener("focus", event => {
     lastActiveTaskId = event.target.id;
@@ -51,6 +61,22 @@ const showAllRows = () => {
 };
 
 /**
+ * @summary Displays all of the hidden rows
+ * @param {HTMLElement} taskInput The input of the task *
+ * @param {HTMLElement} deleteBtn The delete button of the task
+ * @returns void
+ */
+const addDeleteBtnEvent = (taskInput, deleteBtn) => {
+  deleteBtn.addEventListener("click", async e => {
+    const taskToDel = taskInput.id;
+    deleteTaskFromDom(taskToDel);
+    deleteBtn.style.visibility = "hidden";
+    deleteBtn.parentElement.style.display = "none";
+    await deleteTaskFromAsana(taskToDel);
+  });
+};
+
+/**
  * @summary Creates a task row when a new task is added.
  * @param {String} task The text of the task
  * @param {Number} taskId The id of the task
@@ -61,21 +87,27 @@ const createTaskRowInDom = (task = "", taskId = 0) => {
   const taskInput = document.createElement("input");
   const taskList = document.querySelector(".task-list");
   const taskHideBtn = document.createElement("button");
+  const deleteBtn = document.createElement("button");
+
   taskInput.setAttribute("id", taskId);
   taskHideBtn.innerHTML = "Hide";
+  deleteBtn.innerHTML = "Delete";
   taskInput.value = task;
 
   addHideRowEvent(taskHideBtn);
-  addToggleDeleteBtnEvent(taskInput);
+  addDeleteBtnEvent(taskInput, deleteBtn);
+  addToggleDeleteBtnEvent(taskRow, deleteBtn);
   addEditEvent(taskInput);
   addTaskFocusEvent(taskInput);
 
   taskRow.classList.add("task-list__row");
   taskInput.classList.add("task-list__txt");
-  taskHideBtn.classList.add("btn", "btn--inline");
+  taskHideBtn.classList.add("btn");
+  deleteBtn.classList.add("btn", "btn--caution");
 
   taskRow.appendChild(taskInput);
   taskRow.appendChild(taskHideBtn);
+  taskRow.appendChild(deleteBtn);
   taskList.prepend(taskRow); // Prepend so that new tasks are at the top
 };
 
@@ -102,16 +134,9 @@ const deleteTaskFromDom = taskId => {
 const addInitialEventListeners = () => {
   const showAllBtn = document.querySelector(".btn--secondary");
   const addTaskBtn = document.querySelector(".btn--primary");
-  const deleteBtn = document.querySelector(".btn--caution");
+  // const deleteBtn = document.querySelector(".btn--caution");
 
   showAllBtn.addEventListener("click", showAllRows);
-
-  deleteBtn.addEventListener("click", async () => {
-    debugger;
-    deleteTaskFromDom(lastActiveTaskId);
-    deleteBtn.style.visibility = "hidden";
-    await deleteTaskFromAsana(lastActiveTaskId);
-  });
 
   addTaskBtn.addEventListener("click", async () => {
     createTaskRowInDom(); // Create task in dom first to avoid awaiting for api response which is bad ux

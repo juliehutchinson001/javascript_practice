@@ -1,4 +1,3 @@
-var lastActiveTaskId;
 /**
  * @summary Adds a spinner while app is fetching the tasks from Asana
  * @returns void
