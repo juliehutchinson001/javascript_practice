@@ -106,8 +106,8 @@ const createTaskRowInDom = (task = "", taskId = 0) => {
   deleteBtn.classList.add("btn", "btn--caution");
 
   taskRow.appendChild(taskInput);
-  taskRow.appendChild(taskHideBtn);
   taskRow.appendChild(deleteBtn);
+  taskRow.appendChild(taskHideBtn);
   taskList.prepend(taskRow); // Prepend so that new tasks are at the top
 };
 
